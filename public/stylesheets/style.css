@@ -1,0 +1,49 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar {
+  padding: 10px 10px;
+  margin-top: -40px;
+}
+
+.navbar .container-fluid .navbar-brand i {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 26px;
+  top: 2px;
+}
+
+.navbar .container-fluid .log-reg a {
+  text-decoration: none;
+}
+
+.navbar .container-fluid .log-reg i {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 26px;
+  top: 2px;
+  color: #fff;
+}
+
+.navbar .container-fluid .nav-item a:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.navbar .container-fluid .nav-item:hover {
+  border-radius: 8px;
+  background-color: #8E05C2;
+  transition-duration: 0.5s;
+}
