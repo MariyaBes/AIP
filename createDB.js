@@ -1,6 +1,7 @@
 const { MongoClient } = require("mongodb");
 
-// Replace the uri string with your MongoDB deployment's connection string.
+var data = require("./data.js").data
+
 const uri =
   "mongodb+srv://FasTik:Tbt3SS6s36@cluster0.t7hx9yq.mongodb.net/?retryWrites=true&w=majority";
 
@@ -11,16 +12,14 @@ async function run() {
     await client.connect();
 
     const database = client.db('AIP');
+    database.dropDatabase()
     const users = database.collection('Users');
 
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { name: 'Mariya' };
-    const user = await users.findOne(query);
+    const result = await users.findOne(data);
 
-    console.log(user);
+    console.log(`${result.insertedCount} documents were inserted`);
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
-run().catch(console.dir);
+run()
