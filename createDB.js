@@ -1,17 +1,48 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://FasTik:Tbt3SS6s36@cluster0.t7hx9yq.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb://localhost:27017/all');
 
-var schema =mongoose.Schema({
-  name: String
-})
+var async = require('async');
+var Users = require("./models/hero").Users
 
-schema.methods.meow = function() {
-  console.log(this.get("name") + " say meow")
-}
+mongoose.connection.on("open", function(){
+  var db = mongoose.connection.db
+  db.dropDatabase(function(err){
+    if (err) throw err
 
-var Cat = mongoose.model('Cat', schema);
-
-var kitty = new Cat({ name: 'Пушок' });
-kitty.save(function (err) {
-  kitty.meow()
+    async.parallel([
+      function(callback){
+        var groot = new Users({
+          nick:"groot"
+        })
+        groot.save(function(err, groot){
+          callback(err, "groot")
+        })
+      },
+      function(callback){
+        var star_lord = new Users({
+          nick:"star_lord"
+        })
+        star_lord.save(function(err, star_lord){
+          callback(err, "star_lord")
+        })
+      },
+      function(callback){
+        var rocket = new Users({
+          nick:"rocket"
+        })
+        rocket.save(function(err, rocket){
+          callback(err, "rocket")
+        })
+      }
+    ],
+    function(err,result){
+      if(err){
+        console.log(err)
+      }
+      else{
+        console.log("Успешно созданы герои с никами: " + result.join(", "))
+      }
+      mongoose.disconnect()
+    })
+  })
 })
