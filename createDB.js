@@ -1,25 +1,17 @@
-const { MongoClient } = require("mongodb");
+var mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://FasTik:Tbt3SS6s36@cluster0.t7hx9yq.mongodb.net/?retryWrites=true&w=majority');
 
-var data = require("./data.js").data
+var schema =mongoose.Schema({
+  name: String
+})
 
-const uri =
-  "mongodb+srv://FasTik:Tbt3SS6s36@cluster0.t7hx9yq.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(uri);
-
-async function run() {
-  try {
-    await client.connect();
-
-    const database = client.db('AIP');
-    database.dropDatabase()
-    const users = database.collection('Users');
-
-    const result = await users.findOne(data);
-
-    console.log(`${result.insertedCount} documents were inserted`);
-  } finally {
-    await client.close();
-  }
+schema.methods.meow = function() {
+  console.log(this.get("name") + " say meow")
 }
-run()
+
+var Cat = mongoose.model('Cat', schema);
+
+var kitty = new Cat({ name: 'Пушок' });
+kitty.save(function (err) {
+  kitty.meow()
+})
