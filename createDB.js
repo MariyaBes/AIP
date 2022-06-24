@@ -8,12 +8,11 @@ var Users = require("./models/hero").Users
 async.series([
   open,
   dropDatabase,
-  createdUsers,
-  close
+  requireModels,
+  createdUsers
 ],
 function(err, result){
-  if(err) throw err
-  console.log("oke")
+  mongoose.disconnect()
 })
 
 function open(callback){
@@ -33,6 +32,12 @@ function createdUsers(callback){
   callback);
 };
 
-function close(callback){
-  mongoose.disconnect(callback)
+function requireModels(callback){
+  require("./models/hero").Users
+
+  async.each(Object.keys(mongoose.models), function(modelName){
+    mongoose.models[modelName].ensureIndexes(callback)
+  },
+  callback)
 }
+
