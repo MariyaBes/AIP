@@ -21,29 +21,31 @@ a {
   top: 2px;
 }
 
-.navbar .container-fluid .log-reg a {
+.navbar .container-fluid .collapse li a {
   text-decoration: none;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  display: block;
+  color: rgb(200, 200, 200);
 }
 
-.navbar .container-fluid .log-reg i {
+.navbar .container-fluid .d-flex i {
   text-decoration: none;
   display: block;
   position: relative;
   align-items: center;
-  justify-content: center;
   padding: 5px;
   font-size: 26px;
   top: 2px;
   color: #fff;
 }
 
-.navbar .container-fluid .nav-item a:hover {
-  color: #fff;
-  transform: scale(1.05);
-}
 
-.navbar .container-fluid .nav-item:hover {
-  border-radius: 8px;
+.navbar .container-fluid .collapse li a:hover {
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  transform: scale(1.06);
   background-color: #8E05C2;
-  transition-duration: 0.5s;
+  transition-duration: 0.4s;
 }

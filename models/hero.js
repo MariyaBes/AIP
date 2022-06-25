@@ -6,7 +6,7 @@ var usersSchema = new Schema({
     nick: {
         type: String,
         unique: true,
-        require: true
+        required: true
     },
     avatar: String,
     desc: String,
@@ -16,4 +16,4 @@ var usersSchema = new Schema({
     }
 })
 
-module.exports.Users = mongoose.model("Users", usersSchema)
+module.exports.Hero = mongoose.model("Hero", usersSchema)

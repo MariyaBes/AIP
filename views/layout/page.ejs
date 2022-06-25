@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <i class="fi fi-rr-home"></i>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -19,28 +19,33 @@
           </button>
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Звездный Лорд</a>
+              <!--
+                <li class="nav-item">
+                <a class="nav-link" href="/heroes/star_lord">Звездный Лорд</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Ракета Енот</a>
+                <a class="nav-link" href="/heroes/rocket">Ракета Енот</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Грут</a>
+                <a class="nav-link" href="/heroes/groot">Грут</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Дракс</a>
+                <a class="nav-link" href="/heroes/drax">Дракс</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Йонду Удонта</a>
+                <a class="nav-link" href="/heroes/yondu">Йонду Удонта</a>
               </li>
             </ul>
-            <form class="d-flex">
-                <a class="navbar-brand" href="#">
-                    <i class="fi fi-rr-user"></i>
-                </a>
-            </form>
+              -->>
+            <% menu.forEach (function(hero){ %>
+              <li><a href="/heroes/<%=hero.nick%>"><%=hero.title%></a></li>
+            <% }) %>
           </div>
+          <form class="d-flex">
+            <a class="navbar-brand" href="#">
+                <i class="fi fi-rr-user"></i>
+            </a>
+        </form>
         </div>
       </nav>
     <%- body %>
