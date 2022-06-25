@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/all')
+var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +24,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+
+app.use(session({
+  secret: "I`mGroot",
+  cookie:{maxAge:60*1000}
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
