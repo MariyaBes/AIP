@@ -1,12 +1,11 @@
 var mongoose = require('mongoose')
-var Schema = mongoose.Schema
 
-var usersSchema = new Schema({
+var usersSchema = mongoose.Schema({
     title: String,
     nick: {
         type: String,
         unique: true,
-        require: true
+        required: true
     },
     avatar: String,
     desc: String,
