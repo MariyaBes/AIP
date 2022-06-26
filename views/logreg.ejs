@@ -13,17 +13,17 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form>
+              <form action="/logreg" method="post">
 
                 <div class="form-outline mb-4">
                   <input type="email" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Введите email" />
+                    placeholder="Введите email" name="username"/>
                   <label class="form-label" for="form3Example3">Email почта</label>
                 </div>
       
                 <div class="form-outline mb-3">
                   <input type="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Введите пароль" />
+                    placeholder="Введите пароль" name="password"/>
                   <label class="form-label" for="form3Example4">Пароль</label>
                 </div>
       
@@ -38,7 +38,7 @@
                 </div>
       
                 <div class="text-center text-lg-start mt-4 pt-2">
-                    <button type="button" class="btn btn-primary btn-lg"
+                    <button type="submit" class="btn btn-primary btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Войти</button>
                 </div>
       
