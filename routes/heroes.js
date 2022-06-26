@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.send('Новый маршрутизатор, для маhшрутов, начинающихся с heroes');
 });
 
-router.get('/hero/:nick', checkAuth, function (req, res, next) {
+router.get('/:nick', checkAuth, function (req, res, next) {
     async.parallel([
         function (callback) {
             Hero.findOne({ nick: req.params.nick }, callback)
