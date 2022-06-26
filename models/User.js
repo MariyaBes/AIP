@@ -1,7 +1,8 @@
-var mongoose = require("mongoose")
+var mongoose = require('mongoose')
 var crypto = require("crypto")
+var Schema = mongoose.Schema
 
-var schemaUser = mongoose.Schema({
+var userSchema = new Schema({
     username:{
         type: String,
         unique: true,
@@ -16,12 +17,12 @@ var schemaUser = mongoose.Schema({
         required: true
     },
     created:{
-        type: Date,
+        type:Date,
         default: Date.now
     }
 })
 
-schemaUser.virtual("password").set(function(password){
+userSchema.virtual("password").set(function(password){
     this._purePassword = password
     this.salt = Math.random() + ""
     this.hashedPassword = this.encryptPassword(password)
@@ -29,8 +30,12 @@ schemaUser.virtual("password").set(function(password){
     return this._purePassword
 })
 
-schemaUser.methods.encryptPassword = function(password){
+userSchema.methods.encryptPassword = function(password){
     return crypto.createHmac('sha1', this.salt).update(password).digest('hex')
 }
 
-module.exports.User = mongoose.model("User", schemaUser)
+userSchema.methods.checkPassword = function(password){
+    return this.encryptPassword(password) === this.hashedPassword
+}
+
+module.exports.User = mongoose.model("User",userSchema)

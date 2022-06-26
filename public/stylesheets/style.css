@@ -49,3 +49,22 @@ a {
   background-color: #8E05C2;
   transition-duration: 0.4s;
 }
+
+.navbar .navbar-nav button {
+  position: relative;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  color: rgb(200, 200, 200);
+}
+
+.navbar .navbar-nav button:hover {
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  transform: scale(1.06);
+  background-color: #8E05C2;
+  transition-duration: 0.4s;
+}
