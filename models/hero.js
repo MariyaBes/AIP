@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
-var Schema = mongoose.Schema
 
-var usersSchema = new Schema({
+var heroSchema = mongoose.Schema({
     title: String,
     nick: {
         type: String,
@@ -16,4 +15,4 @@ var usersSchema = new Schema({
     }
 })
 
-module.exports.Hero = mongoose.model("Hero", usersSchema)
+module.exports.Hero = mongoose.model("Hero", heroSchema)

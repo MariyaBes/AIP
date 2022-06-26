@@ -19,6 +19,13 @@
           </button>
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
+              <% if(typeof nav=='object' && nav){ nav.forEach(function(item){ %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/heroes/<%=item.nick%>">
+                    <%=item.title%>
+                  </a>
+                </li>
+                <% })} %>
               <!--
                 <li class="nav-item">
                 <a class="nav-link" href="/heroes/star_lord">Звездный Лорд</a>
@@ -35,11 +42,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/heroes/yondu">Йонду Удонта</a>
               </li>
-            </ul>
               -->>
-            <% menu.forEach (function(hero){ %>
-              <li><a href="/heroes/<%=hero.nick%>"><%=hero.title%></a></li>
-            <% }) %>
+            </ul>
+            
           </div>
           <form class="d-flex">
             <a class="navbar-brand" href="#">

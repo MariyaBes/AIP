@@ -1,5 +1,5 @@
 var express = require('express');
-const { Hero } = require('../models/hero');
+var Hero = require("../models/hero").Hero
 var router = express.Router();
 
 /* GET home page. */
@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
     req.session.all_work = "Работает!!"
     res.render('index', {
       title: 'Сайт с описание героев из "Стражей Галактики"',
-      menu: menu });
+      menu: menu,
+      counter: req.session.counter});
     })
 });
 
