@@ -1,3 +1,4 @@
+
 <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel='stylesheet' href='/stylesheets/logreg.css' />
 <script src="/jquery/dist/jquery.js"></script>
@@ -41,6 +42,9 @@
                     <button type="submit" class="btn btn-primary btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Войти</button>
                 </div>
+                <% if(error) { %>
+                  <div class="alert alert-danger"><%= error %></div>
+                <% } %>
       
               </form>
             </div>

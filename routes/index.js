@@ -16,7 +16,8 @@ router.get('/', function(req, res, next) {
 
 /* log_in/Sing_in */
 router.get("/logreg", function(req, res, next){
-  res.render("logreg", {title:'Вход'});
+  res.render("logreg", {title:'Вход',
+                        error:null});
 });
 
 
